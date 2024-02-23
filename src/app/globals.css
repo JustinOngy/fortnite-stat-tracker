@@ -2,32 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+  font-family: "Burbank Big Regular Bold";
+  src: url("/fonts/BurbankBigRegularBold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Burbank Big Regular Bold", sans-serif;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.bg-black {
+  background-color: black;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Navbar.css */
+.navbar {
+  background-color: #0a0a0a;
+  height: 50px;
+  font-family: "Burbank Big Regular Bold", sans-serif;
+  font-size: x-large;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar li {
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navbar li:hover {
+  background-color: #1e40af; /* Fortnite's vibrant blue for hover */
+  border-radius: 4px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #ffffff; /* White text for contrast */
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #d4d4d2; /* Light grey for hover effect */
+}
+
+.title {
+  padding: 2px;
+  margin-left: 8px;
+}
+.ml-5 {
+  margin-left: 20px;
+}
+.h1-font-size {
+  font-size: 40px;
 }

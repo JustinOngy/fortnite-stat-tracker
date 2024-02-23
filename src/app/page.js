@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import StatsBox from "../../components/StatsBox";
-
+import "/src/app/globals.css";
 export default function Home() {
   const [gamertag, setGamertag] = useState("");
   const [loading, setLoading] = useState(false);
@@ -51,7 +51,6 @@ export default function Home() {
                 : "0.00",
             };
           } else {
-            // Provide default values if modeData doesn't exist
             acc[mode] = {
               matches: 0,
               wins: 0,
@@ -72,7 +71,7 @@ export default function Home() {
           top3: data.data.stats.all.overall.top3,
           username: data.data.account.name,
           level: data.data.battlePass.level,
-          stats, // Add the structured stats to your state
+          stats,
         });
       } else {
         setError("User does not exist or is private. Please try again.");
@@ -92,82 +91,91 @@ export default function Home() {
   };
 
   return (
-    <main
-      style={mainBgStyle}
-      className="flex min-h-screen flex-col items-center justify-between  text-white bg-gray-900">
-      <div className=" w-full p-10 bg-gradient-to-br from-blue-800 to-purple-900 mt-10 mb-0 rounded-lg shadow-lg">
-        <h2 className=" text-center text-3xl font-bold mb-4">
-          Fortnite Player Stats
-        </h2>
-        <form onSubmit={handleSubmit} className="mt-4 flex justify-center">
-          <input
-            type="text"
-            value={gamertag}
-            onChange={(e) => setGamertag(e.target.value)}
-            className="form-input mt-1 block max-w-[1000px] w-full px-3 py-2 bg-white text-black border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-            placeholder="Gamertag"
-            id="gamertag"
-          />
-          <button type="submit" className="flex items-center justify-center">
-            <img
-              src="/submit.png"
-              alt="Submit"
-              className="hover:opacity-75 h-14"
+    <>
+      <main
+        style={mainBgStyle}
+        className="flex min-h-screen flex-col items-center justify-between  text-white bg-gray-900">
+        <div className=" w-full p-10 bg-gradient-to-br from-blue-800 to-purple-900 mb-0 rounded-lg shadow-lg">
+          <h2 className=" text-center text-3xl font-bold mb-4">
+            FORTNITE PLAYER STATS
+          </h2>
+          <form onSubmit={handleSubmit} className="mt-4 flex justify-center">
+            <input
+              type="text"
+              value={gamertag}
+              onChange={(e) => setGamertag(e.target.value)}
+              className="form-input mt-1 block max-w-[1000px] w-full px-3 py-2 bg-white text-black border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              placeholder="Gamertag"
+              id="gamertag"
             />
-          </button>
-        </form>
-        {loading ? (
-          <p>Loading...</p>
-        ) : error ? (
-          <p className="text-red-500">{error}</p>
-        ) : playerStats.username ? (
-          <>
-            <div className="mt-8">
-              <h4 className="text-center text-2xl font-semibold mb-4">
-                Level: {playerStats.level} | Player Name:{" "}
-                {playerStats.username.toUpperCase()}
-              </h4>
-              <div className="flex justify-between items-center text-xl mt-10 mb-10">
-                <StatDisplay
-                  src="/wins.png"
-                  label="Wins"
-                  value={playerStats.wins}
-                />
-                <StatDisplay
-                  src="/levelup.png"
-                  label="Kills"
-                  value={playerStats.kills}
-                />
-                <StatDisplay
-                  src="/games.png"
-                  label="Matches Played"
-                  value={playerStats.matches}
-                />
-                <StatDisplay
-                  src="/top3.png"
-                  label="Top 3"
-                  value={playerStats.top3}
-                />
+            <button type="submit" className="flex items-center justify-center">
+              <img
+                src="/submit.png"
+                alt="Submit"
+                className="hover:opacity-75 h-14"
+              />
+            </button>
+          </form>
+          {loading ? (
+            <p>Loading...</p>
+          ) : error ? (
+            <p className="text-red-500">{error}</p>
+          ) : playerStats.username ? (
+            <>
+              <div className="mt-8">
+                <h4 className="text-center text-3xl font-semibold mb-4">
+                  Level: {playerStats.level} | Player Name:{" "}
+                  {playerStats.username.toUpperCase()}
+                </h4>
+                <div className="flex justify-between items-center text-xl mt-10 mb-10">
+                  <StatDisplay
+                    src="/wins.png"
+                    label="Wins"
+                    value={playerStats.wins}
+                  />
+                  <StatDisplay
+                    src="/levelup.png"
+                    label="Kills"
+                    value={playerStats.kills}
+                  />
+                  <StatDisplay
+                    src="/games.png"
+                    label="Matches Played"
+                    value={playerStats.matches}
+                  />
+                  <StatDisplay
+                    src="/top3.png"
+                    label="Top 3"
+                    value={playerStats.top3}
+                  />
+                </div>
               </div>
-            </div>
-            <div>
-              <StatsBox title="Solo" stats={playerStats.stats.solo} />
-              <StatsBox title="Duos" stats={playerStats.stats.duo} />
-              <StatsBox title="Squads" stats={playerStats.stats.squad} />
-            </div>
-          </>
-        ) : null}
-      </div>
-    </main>
+              <div>
+                <StatsBox title="solo" stats={playerStats.stats.solo} />
+                <StatsBox title="duos" stats={playerStats.stats.duo} />
+                <StatsBox title="squads" stats={playerStats.stats.squad} />
+              </div>
+            </>
+          ) : null}
+        </div>
+      </main>
+    </>
   );
 }
 
 function StatDisplay({ src, label, value }) {
   return (
     <div className="text-center flex-1 flex flex-col items-center">
-      <Image src={src} alt={label} width={75} height={75} layout="fixed" />
-      <p className="font-bold">{label.toUpperCase()}</p>
-      <p>{value}</p>
+      <Image
+        className="mb-2"
+        src={src}
+        alt={label}
+        width={75}
+        height={75}
+        layout="fixed"
+      />
+      <p className="text-3xl">{value}</p>
+      <p className="text-2xl ">{label.toUpperCase()}</p>
     </div>
   );
 }
