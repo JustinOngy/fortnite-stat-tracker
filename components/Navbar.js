@@ -8,6 +8,11 @@ const Navbar = () => {
     <nav className="navbar">
       <ul>
         <li>
+          <Link href="/home" passHref>
+            Home
+          </Link>
+        </li>
+        <li>
           <Link href="/news" passHref>
             News
           </Link>

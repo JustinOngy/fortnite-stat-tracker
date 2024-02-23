@@ -39,7 +39,7 @@ const StatsBox = ({ title, stats }) => {
         </h1>
       </div>
 
-      <div className="stats-box border flex justify-around ">
+      <div className="stats-box border flex flex-row justify-around  ">
         {Object.entries(stats).map(([key, value]) => (
           <div
             key={key}

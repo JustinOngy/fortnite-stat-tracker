@@ -33,7 +33,7 @@ export default function Home() {
       const data = await response.json();
       console.log(data);
       if (response.ok) {
-        const modes = ["solo", "duo", "squad"]; // Corrected from 'squads' to 'squad'
+        const modes = ["solo", "duo", "squad"];
         const stats = modes.reduce((acc, mode) => {
           const modeData = data.data.stats.all[mode];
           if (modeData) {
@@ -84,18 +84,10 @@ export default function Home() {
     }
   };
 
-  const mainBgStyle = {
-    backgroundImage: "url('/Fortnite-bg.jpeg')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  };
-
   return (
     <>
-      <main
-        style={mainBgStyle}
-        className="flex min-h-screen flex-col items-center justify-between  text-white bg-gray-900">
-        <div className=" w-full p-10 bg-gradient-to-br from-blue-800 to-purple-900 mb-0 rounded-lg shadow-lg">
+      <main className="main-bg flex min-h-screen flex-col items-center justify-between text-white bg-gradient-to-br from-blue-800 to-purple-900">
+        <div className=" w-full p-10  mb-0 rounded-lg ">
           <h2 className=" text-center text-3xl font-bold mb-4">
             FORTNITE PLAYER STATS
           </h2>
@@ -117,9 +109,9 @@ export default function Home() {
             </button>
           </form>
           {loading ? (
-            <p>Loading...</p>
+            <p className="text-center mt-5 text-2xl">Loading...</p>
           ) : error ? (
-            <p className="text-red-500">{error}</p>
+            <p className="text-red-500 text-center mt-5 text-2xl ">{error}</p>
           ) : playerStats.username ? (
             <>
               <div className="mt-8">

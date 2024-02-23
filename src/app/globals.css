@@ -71,3 +71,45 @@ h5 {
 .h1-font-size {
   font-size: 40px;
 }
+
+.article-container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+@media (min-width: 768px) {
+  .article-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .article-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.news-bg {
+  background-color: #19203a;
+  color: white;
+}
+
+.article-inner-container {
+  background-color: #36393c;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.stats-box {
+  display: grid;
+  grid-template-columns: repeat(
+    7,
+    1fr
+  ); /* Assuming you have 4 items, adjust accordingly */
+}
+
+@media (max-width: 1150px) {
+  .stats-box {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
