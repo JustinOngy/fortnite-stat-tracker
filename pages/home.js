@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const home = () => {
@@ -15,9 +16,10 @@ const home = () => {
       <div className="lefthand-side">
         <div className="consoles flex">
           <div>switch</div>
-          <div>xbox</div>
-          <div>ps</div>
-          <div>pc</div>
+          <Image src="../public/nintendo-switch.svg" width={50} height={50} />
+          <Image src="../public/xbox.svg" width={50} height={50} />
+          <Image src="../public/playstation.svg" width={50} height={50} />
+          {/* <Image src="../public/monitor.png" width={50} height={50} /> */}
         </div>
         <p>avaliable on all platforms</p>
         <h1>FORTNITE TRACKER</h1>
