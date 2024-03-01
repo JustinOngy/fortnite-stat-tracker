@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import StatsBox from "../../components/StatsBox";
 import "/src/app/globals.css";
+import ProfileBanner from "../../components/ProfileBanner";
 export default function Home() {
   const [gamertag, setGamertag] = useState("");
   const [loading, setLoading] = useState(false);
@@ -114,6 +115,7 @@ export default function Home() {
             <p className="text-red-500 text-center mt-5 text-2xl ">{error}</p>
           ) : playerStats.username ? (
             <>
+              <ProfileBanner playerStats={playerStats} />
               <div className="mt-8">
                 <h4 className="text-center text-3xl font-semibold mb-4">
                   Level: {playerStats.level} | Player Name:{" "}
