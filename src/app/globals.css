@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  box-sizing: border-box;
+}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @font-face {
   font-family: "Burbank Big Regular Bold";
   src: url("/fonts/BurbankBigRegularBold.otf") format("opentype");
@@ -24,12 +28,19 @@ h5 {
 
 /* Navbar.css */
 .navbar {
-  background-color: #0a0a0a;
-  height: 50px;
+  background-color: #1a1919;
+  height: 70px;
   font-family: "Burbank Big Regular Bold", sans-serif;
   font-size: x-large;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
 }
 
+.logo {
+  font-size: 30px;
+}
 .navbar ul {
   list-style-type: none;
   margin: 0;
@@ -46,19 +57,19 @@ h5 {
 }
 
 .navbar li:hover {
-  background-color: #1e40af; /* Fortnite's vibrant blue for hover */
-  border-radius: 4px;
+  background-color: #1e40af;
+  border-radius: 6px;
 }
 
 .navbar a {
   text-decoration: none;
-  color: #ffffff; /* White text for contrast */
+  color: #ffffff;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 .navbar a:hover {
-  color: #d4d4d2; /* Light grey for hover effect */
+  color: #d4d4d2;
 }
 
 .title {
@@ -102,14 +113,109 @@ h5 {
 }
 .stats-box {
   display: grid;
-  grid-template-columns: repeat(
-    7,
-    1fr
-  ); /* Assuming you have 4 items, adjust accordingly */
+  grid-template-columns: repeat(7, 1fr);
 }
 
 @media (max-width: 1150px) {
   .stats-box {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+.home-container {
+  display: flex;
+}
+
+@media (max-width: 1150px) {
+  .stats-box {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .home-container {
+    flex-direction: column;
+  }
+  .lefthand-side {
+    margin-left: 20%;
+  }
+  .righthand-side {
+    margin-left: 20%;
+  }
+}
+
+.home-container {
+  display: flex;
+}
+
+.lefthand-side {
+  width: 60%;
+}
+
+.lefthandside-container {
+  padding: 10%;
+}
+
+.lefthand-side__consoles {
+  margin-top: 5%;
+  filter: invert(100%);
+}
+.lefthand-side__consoles img {
+  margin-right: 10px;
+}
+
+.lefthand-side__subheading {
+  margin-top: 20px;
+}
+.lefthand-side__text {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+}
+.lefthand-side__title {
+  margin-top: 20px;
+  font-size: 80px;
+}
+
+.lefthand-side__button,
+.player_tracker-button {
+  background-color: yellow;
+  width: 200px;
+  height: 50px;
+  color: black;
+  font-size: 30px;
+  font-family: "Burbank Big Regular Bold", sans-serif;
+}
+
+.lefthand-side__button {
+  margin-top: 40px;
+}
+
+.righthand-side {
+  width: 40%;
+}
+
+.righthandside-container {
+  padding: 10%;
+}
+
+.righthand-side__video {
+  margin-top: 80%;
+  width: 400px;
+  height: 100px;
+}
+
+video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+}
+
+.video-heading {
+  width: 100%;
+  background-color: rgb(46, 44, 44);
+}
+
+.video-h1 {
+  margin-left: 10px;
 }

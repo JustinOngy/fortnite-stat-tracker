@@ -6,28 +6,23 @@ import Link from "next/link";
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <ul>
-        <li>
-          <Link href="/home" passHref>
-            Home
-          </Link>
-        </li>
+      <div className="logo cursor-pointer">
+        <Link href="/home" passHref>
+          FNTRKER
+        </Link>
+      </div>
+      <ul className="nav-links">
         <li>
           <Link href="/news" passHref>
             News
           </Link>
         </li>
-        <li>
-          <Link href="/item-shop" passHref>
-            Item Shop
-          </Link>
-        </li>
-        <li>
-          <Link href="/" passHref>
-            Player Tracker
-          </Link>
-        </li>
       </ul>
+      <Link href="/" passHref>
+        <button className="player_tracker-button " href="/" passHref>
+          Track Player
+        </button>
+      </Link>
     </nav>
   );
 };
