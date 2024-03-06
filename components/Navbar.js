@@ -7,18 +7,14 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="logo cursor-pointer">
-        <Link href="/home" passHref>
-          FNTRKER
-        </Link>
+        <Link href="/home">FNTRKER</Link>
       </div>
       <ul className="nav-links">
         <li>
-          <Link href="/news" passHref>
-            News
-          </Link>
+          <Link href="/news">News</Link>
         </li>
       </ul>
-      <Link href="/" passHref>
+      <Link href="/">
         <button className="player_tracker-button " href="/" passHref>
           Track Player
         </button>

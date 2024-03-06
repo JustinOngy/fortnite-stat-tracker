@@ -39,7 +39,7 @@ const home = () => {
               </h8>
             </div>
 
-            <Link href="/" passHref>
+            <Link href="/">
               <button className="lefthand-side__button " href="/" passHref>
                 Track
               </button>
