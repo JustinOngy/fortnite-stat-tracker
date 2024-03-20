@@ -133,7 +133,9 @@ h8 {
 .home-container {
   display: flex;
 }
-
+.homepage-background {
+  background-color: #262424;
+}
 @media (max-width: 1150px) {
   .stats-box {
     grid-template-columns: repeat(3, 1fr);
@@ -143,9 +145,15 @@ h8 {
   }
   .lefthand-side {
     margin-left: 20%;
+    margin-bottom: -200px;
   }
+
+  .lefthand-side__text {
+    display: none;
+  }
+
   .righthand-side {
-    margin-left: 20%;
+    display: none;
   }
 }
 
@@ -210,7 +218,7 @@ h8 {
 }
 
 .righthand-side__video {
-  margin-top: 80%;
+  margin-top: 70%;
   width: 400px;
   height: 100px;
 }
@@ -230,6 +238,11 @@ video {
 
 .video-h1 {
   margin-left: 10px;
+}
+
+.news-section {
+  background-color: #1a1919;
+  height: auto;
 }
 
 /* ProfileBanner */

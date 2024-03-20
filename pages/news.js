@@ -22,6 +22,30 @@ const News = () => {
     fetchNews();
   }, []);
 
+  const apiKey = "b4fd8a72-a527-4ce0-b529-fdb0bf81a74b"; 
+
+  fetch("https://api.fortnitetracker.com/v1/powerrankings/pc/NAE/Ninja", {
+    headers: {
+      "TRN-Api-Key": apiKey,
+      Accept: "application/json",
+      "Accept-Encoding": "gzip",
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log("Request successful!");
+      console.log("Response data:");
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+
   return (
     <>
       <Head>
